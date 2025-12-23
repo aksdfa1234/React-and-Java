@@ -48,6 +48,7 @@ function App() {
       console.log(JSON.stringify(data)); // 登入結果
       if(data.status === 200) {
         setIsLoggedIn(true); // 修改登入狀態
+        //window.location.href = "/"; // 回到首頁
         alert("登入成功");
       } else {
         setIsLoggedIn(false); // 修改登入狀態
@@ -71,7 +72,7 @@ function App() {
       console.log(e);
       alert(e);
     }
-    window.location.href = "/"; // 回到首頁
+    window.location.href='/'; // 回到首頁
   };
 
   // 加入購物車
@@ -112,8 +113,9 @@ function App() {
           {/* 購物車路由 */}
           <Route path="/cart" element={<Cart cartItems={cartItems} removeFromCart={removeFromCart} 
                                              clearCart={clearCart} isLoggedIn={isLoggedIn} />} />
-          {/*結帳路由*/}
-          <Route path="/checkout" element={<Checkout />}/>
+
+          {/* 結帳路由 */}
+          <Route path="/checkout" element={<Checkout />} />
 
           {/* 登入路由 */}
           <Route path='/login' element={<LoginPage onLogin={handleLogin} isLoggedIn={isLoggedIn} />} />
